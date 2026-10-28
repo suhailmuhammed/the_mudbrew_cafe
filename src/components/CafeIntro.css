@@ -1,0 +1,181 @@
+/* CafeIntro.css - Premium animated loading intro for The MudBrew Cafe */
+
+.cafe-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #C06539;
+  color: #FAF7F2;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, clip-path;
+}
+
+/* Exit transition: Smooth unmasking / circular expand */
+.cafe-intro-overlay.is-exiting {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+@supports (clip-path: circle(100% at 50% 50%)) {
+  .cafe-intro-overlay.is-exiting:not(.reduced-motion) {
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 0.75s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease-in 0.25s;
+  }
+}
+
+/* Reduced motion support */
+.cafe-intro-overlay.reduced-motion {
+  transition: opacity 0.4s ease-out !important;
+  transform: none !important;
+  clip-path: none !important;
+}
+
+.cafe-intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  max-width: 24rem;
+}
+
+/* 1. Logo animation: subtle scale-up & fade-in */
+.cafe-intro-logo-wrap {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: scale(0.92);
+  animation: introLogoFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+@keyframes introLogoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cafe-intro-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 2. Brand Wordmark animation */
+.cafe-intro-brand {
+  margin-top: 1.25rem;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: introTextFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+@keyframes introTextFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cafe-intro-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #FAF7F2;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cafe-intro-tagline {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.72);
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+/* 3. Understated Animated Loading Indicator */
+.cafe-intro-loader {
+  margin-top: 2rem;
+  width: 110px;
+  height: 2px;
+  background-color: rgba(250, 247, 242, 0.22);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  animation: introLoaderFadeIn 0.4s ease 0.6s forwards;
+}
+
+@keyframes introLoaderFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.cafe-intro-loader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #FAF7F2;
+  border-radius: 9999px;
+  animation: introProgress 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.65s forwards;
+}
+
+@keyframes introProgress {
+  0% {
+    width: 0%;
+  }
+  45% {
+    width: 65%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .cafe-intro-logo-wrap,
+  .cafe-intro-brand,
+  .cafe-intro-loader {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .cafe-intro-loader-bar {
+    animation-duration: 0.6s !important;
+    animation-delay: 0s !important;
+  }
+}

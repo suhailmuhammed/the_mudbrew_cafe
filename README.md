@@ -6,43 +6,68 @@ An intentional sanctuary combining artisanal wheel throwing, miniature indoor te
 
 ---
 
-## 🌟 Highlight: Main Entry Point
+## 🌟 Brand Intro & Application Architecture
 
-The primary website application is located directly at the project root:
+The application is built with **React + Vite** and features a premium animated loading intro on the first visit of each tab session:
 
-👉 **[`index.html`](index.html)** — Full single-page interactive application featuring:
-- **Architectural Hero & Editorial Story**: Introduction to Courtyard 04 in the Arts Quarter.
-- **Shimpo Wheel Pottery Studio**: Session booking, clay craft guides, and firing kilns.
-- **40ft Micro RC Rock Crawling Arena**: Technical obstacle course and crawler trail booking.
-- **Artisan Cafe & Bakery**: Sourdough toasts, roasted single-origin coffees, and signature pastries.
-- **Online Ordering & Table Reservations**: Interactive category filters, item ordering, and reservation scheduling.
+- **Animated Brand Intro (`CafeIntro.jsx`)**:
+  - Full-viewport warm terracotta canvas (`#C06539`).
+  - Subtle fade-in and scale-up of the botanical logo.
+  - Soft opacity reveal of the `MUD BREW` wordmark and subtitle.
+  - Understated minimal loading progress indicator.
+  - Expanding circular/fade transition into the café homepage.
+  - **`sessionStorage` Caching**: Plays smoothly once per browser tab session; subsequent navigations and refreshes instantly display the homepage.
+  - **Accessibility**: Detects `prefers-reduced-motion` and provides an instant graceful fade.
+  - **Fail-Safe**: Hard timeout guarantee prevents permanent loading states.
+- **Complete Café Homepage (`HomePage.jsx`)**:
+  - Full artisanal wheel pottery studio booking.
+  - 40 ft micro RC rock crawling arena.
+  - Warm acoustic curved plaster dining sanctuary.
+  - Studio pantry menu highlights.
+  - Direct delivery partner portals (Swiggy, Zomato, Magicpin) & table inquiry form.
 
 ---
 
-## 📁 Clean Project Directory Structure
+## 📁 Project Directory Structure
 
 ```text
 The MudBrew/
-├── index.html           # 🌟 PRIMARY APPLICATION (Production-ready single page)
-├── README.md            # Project overview, architecture & documentation
-├── .gitignore           # Git ignore configurations (archives, OS files, IDEs)
-└── docs/
-    ├── DESIGN.md        # Comprehensive Design System (Terracotta & Kiln specs & tokens)
-    └── preview.png      # High-resolution design preview screenshot
+├── public/
+│   └── logo.png         # Botanical logo asset (terracotta & ivory)
+├── src/
+│   ├── assets/
+│   │   └── logo.png     # Local asset reference
+│   ├── components/
+│   │   ├── CafeIntro.jsx # Reusable animated loading brand intro component
+│   │   ├── CafeIntro.css # Keyframes, circular unmasking & reduced motion styles
+│   │   └── HomePage.jsx  # Preserved homepage sections, layout & interactions
+│   ├── App.jsx          # Root lifecycle controller
+│   └── main.jsx         # React mounting entry point
+├── docs/
+│   ├── DESIGN.md        # Terracotta & Kiln design system tokens & specifications
+│   └── preview.png      # High-resolution design preview
+├── index.html           # HTML template with Google Fonts & Tailwind CDN configuration
+├── vite.config.js       # Vite React plugin configuration
+├── package.json         # React 18 & Vite 6 build scripts
+└── .gitignore           # Git ignore rules
 ```
 
 ---
 
-## 🚀 Running Locally
-
-Open [`index.html`](index.html) in any web browser:
+## 🚀 Getting Started
 
 ```bash
-# Windows
-start index.html
+# Install dependencies
+npm install
 
-# Or run with any local dev server
-npx serve .
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
 ---
