@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   const [formData, setFormData] = useState({
@@ -36,17 +37,17 @@ export default function HomePage() {
             <a className="hover:text-terracotta transition-colors duration-200" href="#arena">RC Arena</a>
             <a className="hover:text-terracotta transition-colors duration-200" href="#menu">Cafe &amp; Taste</a>
             <a className="hover:text-terracotta transition-colors duration-200" href="#order">Delivery</a>
-            <a className="hover:text-terracotta transition-colors duration-200" href="#visit">Visit</a>
+            <Link className="text-terracotta font-semibold hover:text-terracotta-dark transition-colors duration-200" to="/book">Reservations</Link>
           </nav>
 
           {/* Understated Action */}
           <div className="flex items-center gap-4">
-            <a
-              className="inline-flex items-center px-4 py-2 rounded-full border border-charcoal/20 text-xs tracking-wider uppercase text-charcoal hover:bg-charcoal hover:text-white transition-all duration-200 font-medium"
-              href="#visit"
+            <Link
+              className="inline-flex items-center px-4 py-2 rounded-full bg-charcoal text-white hover:bg-terracotta text-xs tracking-wider uppercase transition-all duration-200 font-medium shadow-sm"
+              to="/book"
             >
-              Reserve Table
-            </a>
+              Book a Table
+            </Link>
           </div>
         </div>
       </header>
@@ -67,15 +68,21 @@ export default function HomePage() {
               <p className="text-stone-600 text-base lg:text-lg font-light leading-relaxed max-w-lg">
                 An intentional sanctuary combining artisanal wheel throwing, miniature indoor terrain crawling, and thoughtful culinary craft under warm acoustic arches.
               </p>
-              <div className="pt-2 flex flex-wrap items-center gap-6 text-sm">
-                <a
-                  className="px-6 py-3 rounded-full bg-charcoal text-white hover:bg-terracotta transition-colors duration-300 font-medium tracking-wide"
-                  href="#studio"
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-sm">
+                <Link
+                  className="px-6 py-3 rounded-full bg-terracotta text-white hover:bg-terracotta-dark transition-colors duration-300 font-medium tracking-wide shadow-sm"
+                  to="/book?category=table"
                 >
-                  Explore Experiences
-                </a>
+                  Book a Table
+                </Link>
+                <Link
+                  className="px-6 py-3 rounded-full bg-charcoal text-white hover:bg-stone-800 transition-colors duration-300 font-medium tracking-wide"
+                  to="/book?category=experience"
+                >
+                  Book an Experience
+                </Link>
                 <a
-                  className="inline-flex items-center gap-2 text-stone-700 hover:text-terracotta font-medium tracking-wide transition-colors"
+                  className="inline-flex items-center gap-2 text-stone-700 hover:text-terracotta font-medium tracking-wide transition-colors ml-1"
                   href="#order"
                 >
                   <span>Order Online</span>
@@ -183,13 +190,13 @@ export default function HomePage() {
                   <span className="font-serif text-lg text-charcoal">
                     From $35 <span className="text-xs font-sans text-stone-500 font-normal">/ person</span>
                   </span>
-                  <a
+                  <Link
                     className="inline-flex items-center gap-1.5 text-xs tracking-wider uppercase font-medium text-terracotta hover:text-charcoal transition-colors"
-                    href="#visit"
+                    to="/book?category=experience"
                   >
                     <span>Book Wheel Slot</span>
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -234,13 +241,13 @@ export default function HomePage() {
                   <span className="font-serif text-lg text-charcoal">
                     $15 <span className="text-xs font-sans text-stone-500 font-normal">/ 30 min pass</span>
                   </span>
-                  <a
+                  <Link
                     className="inline-flex items-center gap-1.5 text-xs tracking-wider uppercase font-medium text-terracotta hover:text-charcoal transition-colors"
-                    href="#visit"
+                    to="/book?category=experience"
                   >
                     <span>Reserve Track Time</span>
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="lg:col-span-7 order-1 lg:order-2">
@@ -510,6 +517,23 @@ export default function HomePage() {
                     • +1 (555) 782-2739
                   </p>
                 </div>
+                {/* Direct Instant Booking Banner */}
+                <div className="p-5 rounded-2xl bg-terracotta-soft/50 border border-terracotta/30 space-y-3">
+                  <div className="flex items-center gap-2 text-terracotta font-medium text-xs">
+                    <span className="material-symbols-outlined text-base">calendar_month</span>
+                    <span className="uppercase tracking-wider text-[10px] font-bold">Online Reservations System</span>
+                  </div>
+                  <p className="text-stone-700 text-xs font-light leading-relaxed">
+                    Reserve an acoustic table or guarantee a pottery wheel with real-time seat availability and instant confirmation.
+                  </p>
+                  <Link
+                    to="/book"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-terracotta text-white hover:bg-terracotta-dark text-xs uppercase tracking-wider font-medium transition-colors shadow-sm"
+                  >
+                    <span>Launch Reservation System</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
 
               {/* Minimal Inquiry Form */}
@@ -577,13 +601,16 @@ export default function HomePage() {
             <span>Arts Quarter Studio</span>
           </div>
           <div className="flex items-center space-x-6 text-[11px] uppercase tracking-wider">
+            <Link className="hover:text-charcoal transition-colors font-medium text-terracotta" to="/book">
+              Book Table
+            </Link>
             <a className="hover:text-charcoal transition-colors" href="#studio">Studio</a>
             <a className="hover:text-charcoal transition-colors" href="#arena">Arena</a>
             <a className="hover:text-charcoal transition-colors" href="#menu">Kitchen</a>
             <a className="hover:text-charcoal transition-colors" href="#order">Delivery</a>
-            <a className="hover:text-charcoal transition-colors" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
-              Instagram
-            </a>
+            <Link className="hover:text-charcoal transition-colors text-stone-400" to="/admin">
+              Staff Portal
+            </Link>
           </div>
           <p className="text-stone-400 text-[11px]">
             © 2025 The MudBrew Cafe. Handcrafted slow living.

@@ -20,4 +20,12 @@ dist/
 build/
 
 .vercel
-.env*
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Local SQLite databases
+data/*.db
+data/*.db-wal
+data/*.db-shm
