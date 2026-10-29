@@ -49,6 +49,11 @@ The application is built with **React 18 + Vite 6 + Node.js/Express + SQLite (WA
   - Operating hours and table capacity rules manager.
   - Full-day closures and time-slot blackout scheduler.
   - Export filtered bookings directly to CSV.
+- **Client Presentation & Showcase (`/presentation` — `ClientPresentation.jsx`)**:
+  - Polished 9-slide agency pitch deck created for sales reps presenting to the MudBrew Café owner.
+  - 12 authentic captured screenshots with click-to-expand lightbox modals.
+  - Keyboard arrow navigation, progress indicators, fullscreen mode, and live website shortcuts.
+  - Clear separation of verified features from proposed use cases without sales pressure.
 
 ---
 

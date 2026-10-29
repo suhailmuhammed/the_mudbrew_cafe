@@ -470,6 +470,15 @@ export default function AdminDashboard() {
               <div className="text-[10px] text-stone-400 capitalize">{currentUser?.role || 'Concierge'}</div>
             </div>
 
+            <Link
+              to="/presentation"
+              className="px-3 py-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-terracotta hover:border-terracotta text-xs font-medium transition-colors flex items-center gap-1"
+              title="Open Client Presentation"
+            >
+              <span className="material-symbols-outlined text-sm">slideshow</span>
+              <span className="hidden sm:inline">Showcase</span>
+            </Link>
+
             <button
               onClick={handleLogout}
               className="px-3 py-1.5 rounded-lg border border-stone-200 text-stone-600 hover:text-terracotta hover:border-terracotta text-xs font-medium transition-colors flex items-center gap-1"

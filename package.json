@@ -10,7 +10,8 @@
     "server": "node server/index.js",
     "seed": "node server/seed.js",
     "start": "node server/index.js",
-    "test": "node test/system-test.js"
+    "test": "node test/system-test.js",
+    "screenshots": "node scripts/capture-screenshots.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "puppeteer-core": "^25.16.0",
     "vite": "^6.2.0"
   }
 }

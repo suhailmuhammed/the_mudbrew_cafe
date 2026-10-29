@@ -611,6 +611,9 @@ export default function HomePage() {
             <Link className="hover:text-charcoal transition-colors text-stone-400" to="/admin">
               Staff Portal
             </Link>
+            <Link className="hover:text-terracotta transition-colors text-terracotta/80 font-medium" to="/presentation">
+              Showcase
+            </Link>
           </div>
           <p className="text-stone-400 text-[11px]">
             © 2025 The MudBrew Cafe. Handcrafted slow living.
